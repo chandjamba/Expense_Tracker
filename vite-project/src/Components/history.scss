@@ -1,0 +1,63 @@
+.history {
+  display: flex;
+  color: black;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgrey;
+  &__inner-container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 200px;
+    background-color: #def2f1;
+    justify-content: center;
+    align-items: center;
+  }
+  &__heading-box {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    width: 95%;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 0.2);
+  }
+  &__slots-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 400px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+  }
+  &__slot-1 {
+    display: flex;
+    flex-direction: row;
+    height: 25px;
+    width: 95%;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  }
+  &__slot-item-box {
+    display: flex;
+    width: 100px;
+    height: 20px;
+    font-size: 13px;
+    align-items: center;
+    margin-left: 5px;
+  }
+  &__slot-item-price-box {
+    display: flex;
+    width: 100px;
+    height: 20px;
+    font-size: 13px;
+    align-items: center;
+    justify-content: right;
+    margin-right: 5px;
+    color: red;
+  }
+}
