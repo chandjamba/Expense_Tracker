@@ -2,6 +2,7 @@ import "./history.scss";
 
 export default function History() {
   return (
+    <inputsDataContext.Consumer>
     <div className="history">
       <div className="history__inner-container">
         <div className="history__heading-box">History</div>
@@ -29,5 +30,6 @@ export default function History() {
         </div>
       </div>
     </div>
+    </inputsDataContext.Consumer>
   );
 }
