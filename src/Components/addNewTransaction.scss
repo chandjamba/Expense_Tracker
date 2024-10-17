@@ -1,0 +1,111 @@
+.addNewTransaction {
+  display: flex;
+  color: black;
+  height: 300px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e90ff;
+
+  &__inner-container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 300px;
+    background-color: #def2f1;
+    align-items: center;
+  }
+  &__heading-box {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    width: 95%;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 0.2);
+    margin-top: 20px;
+  }
+  &__item-input-1-container {
+    display: flex;
+    flex-direction: column;
+    height: 90px;
+    padding: 10px;
+    justify-content: space-around;
+  }
+  &__input-1-heading {
+    display: flex;
+    width: 100px;
+    height: 25px;
+    color: black;
+    align-items: center;
+    font-size: 13px;
+  }
+  &__input-1-box {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    border: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    padding: 5px;
+    background-color: white;
+    align-items: center;
+  }
+  &__input-1 {
+    display: flex;
+    width: 100%;
+    height: 25x;
+    border: none;
+    outline: none;
+  }
+
+  //input-2
+  &__amount-input-2-container {
+    display: flex;
+    flex-direction: column;
+    height: 90px;
+    padding: 10px;
+    justify-content: space-around;
+  }
+  &__input-2-heading {
+    display: flex;
+    width: 100px;
+    height: 25px;
+    color: black;
+    align-items: center;
+    font-size: 13px;
+  }
+  &__input-2-box {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    border: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    padding: 5px;
+    background-color: white;
+    align-items: center;
+  }
+  &__input-2 {
+    display: flex;
+    width: 100%;
+    height: 25px;
+    border: none;
+    outline: none;
+  }
+  // add button
+  &__btn {
+    display: flex;
+    height: 40px;
+    width: 95%;
+    align-items: center;
+    justify-content: center;
+    border: solid;
+    border-radius: 1px;
+    border-width: 1px;
+  }
+  &__btn:hover {
+    background-color: #1e90ff;
+    color: white;
+  }
+}
