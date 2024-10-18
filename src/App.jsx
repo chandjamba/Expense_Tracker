@@ -1,21 +1,17 @@
 import AddNewTransaction from "./Components/AddNewTransaction";
 import Balance from "./Components/Balance";
 import History from "./Components/History";
+import {CheckoutContextProvider} from "./contexts/CheckoutContext";
 import "./index.css";
-import { inputsDataContext } from "./Context/context";
-import { createContext } from "react";
 
-export const inputsDataContext = createContext();
 
 function App() {
   return (
-    <>
-    <inputsDataContext.Provider value={formData}>
+    <CheckoutContextProvider>
       <Balance />
       <AddNewTransaction />
       <History />
-      </inputsDataContext.Provider>
-    </>
+    </CheckoutContextProvider>
   );
 }
 

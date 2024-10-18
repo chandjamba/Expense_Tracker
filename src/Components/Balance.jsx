@@ -1,6 +1,9 @@
 import "./balance.scss";
+import { useCheckoutContext } from "../contexts/CheckoutContext";
 
 export default function Balance() {
+  const { thing } = useCheckoutContext();
+  console.log(thing, "name in balance file");
   return (
     <div className="balance">
       <div className="balance__inner-wrapper">
