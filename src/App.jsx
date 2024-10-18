@@ -1,17 +1,17 @@
 import AddNewTransaction from "./Components/AddNewTransaction";
 import Balance from "./Components/Balance";
 import History from "./Components/History";
-import {CheckoutContextProvider} from "./contexts/CheckoutContext";
+import { FormDataContextProvider } from "./contexts/FormDataContext";
 import "./index.css";
 
 
 function App() {
   return (
-    <CheckoutContextProvider>
+    <FormDataContextProvider>
       <Balance />
       <AddNewTransaction />
       <History />
-    </CheckoutContextProvider>
+    </FormDataContextProvider>
   );
 }
 

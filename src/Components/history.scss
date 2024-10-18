@@ -5,7 +5,7 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  background-color: #1e90ff;
+  background-color: #F0FFFF;
   &__inner-container {
     display: flex;
     flex-direction: column;
@@ -14,6 +14,11 @@
     background-color: #def2f1;
     align-items: center;
     margin-bottom: 100px;
+    border-left: solid;
+    border-bottom: solid;
+    border-right: solid;
+    border-width: 1px;
+
   }
   &__heading-box {
     display: flex;

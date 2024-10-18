@@ -4,7 +4,7 @@
   height: 300px;
   width: 100%;
   justify-content: center;
-  background-color: #1E90FF;
+  background-color: #F0FFFF;
   align-items: center;
   &__inner-wrapper {
     display: flex;
@@ -16,8 +16,11 @@
     align-items: center;
     padding: 1rem;
     background-color: #def2f1;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     margin-top: 100px;
+    border-left: solid;
+    border-top: solid;
+    border-right: solid;
+    border-width: 1px;
   }
   &__heading-and-amount-container {
     display: flex;
