@@ -2,31 +2,20 @@ import "./addNewTransaction.scss";
 import { useFormDataContext } from "../contexts/FormDataContext";
 
 export default function AddNewTransaction() {
-  const {itemsName, setItemsName} = useFormDataContext();
-  const {itemName, setItemName} = useFormDataContext();
-  const {itemsAmount, setItemsAmount} = useFormDataContext();
-  const {itemAmount, setItemAmount} = useFormDataContext();
-  const {income, setIncome} = useFormDataContext();
-
+  const { setItems } = useFormDataContext();
 
   function addButtonHandler(e) {
     e.preventDefault();
-    
-    if (itemName.trim()  && itemAmount.trim() !== ""){
-
-      setItemsName([...itemsName, itemName]);
-      setItemName("");
-      setItemsAmount([...itemsAmount, itemAmount]);
-      setItemAmount("");
-    }
-
-    
+    const formData = new FormData(e.target);
+    const parsedFormData = Object.fromEntries(formData.entries());
+    setItems((preItems) => {
+      return [...preItems, parsedFormData];
+    });
   }
-  console.log(itemsName);
 
   return (
     <div className="addNewTransaction">
-        <form className="addNewTransaction__form"   onSubmit={addButtonHandler}>
+      <form className="addNewTransaction__form" onSubmit={addButtonHandler}>
         <div className="addNewTransaction__inner-container">
           <div className="addNewTransaction__heading-box">
             Add new transaction
@@ -38,13 +27,10 @@ export default function AddNewTransaction() {
                 className="addNewTransaction__input-1"
                 type="text"
                 placeholder="Enter text..."
-                name="nameInput"
-                value={itemName || ""}
+                name="name"
                 required
-                onChange={(event) => setItemName(event.target.value)}
                 maxLength="15"
               />
-              {console.log(itemName)}
             </div>
           </div>
 
@@ -55,16 +41,12 @@ export default function AddNewTransaction() {
                 className="addNewTransaction__input-2"
                 type="text"
                 placeholder="$"
-                name="amountInput"
-                value={itemAmount || ""}
-                onChange={(event) => setItemAmount(event.target.value)}
+                name="amount"
                 required
                 maxLength="10"
               />
-              {console.log(itemAmount)}
             </div>
           </div>
-
 
           <div className="addNewTransaction__income-input-3-container">
             <div className="addNewTransaction__input-3-heading">Income</div>
@@ -73,19 +55,16 @@ export default function AddNewTransaction() {
                 className="addNewTransaction__input-3"
                 type="text"
                 placeholder="$"
-                name="incomeInput"
-                value={income || ""}
-                onChange={(event) => setIncome(event.target.value)}
+                name="income"
                 maxLength="10"
               />
-              {console.log(income)}
             </div>
           </div>
           <button className="addNewTransaction__btn" type="submit">
             Add transaction
           </button>
         </div>
-    </form>
-      </div>
+      </form>
+    </div>
   );
 }

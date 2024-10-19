@@ -6,21 +6,28 @@ export const FormDataContext = createContext();
 // <Context.Provider
 // value={{}} > { children }</Context.Provider >
 export function FormDataContextProvider({ children }) {
-      const [formData, setFormData] = useState("");
-      const [itemsName, setItemsName] = useState([]);
-      const [itemName, setItemName] = useState([]);
-      const [itemsAmount, setItemsAmount] = useState([]);
-      const [itemAmount, setItemAmount] = useState([]);
-      const [income, setIncome] = useState(0);
-      const [balance, setBalance] = useState(0);
-      const [expense, setExpense] = useState(0);
+  const [formData, setFormData] = useState("");
+  const [items, setItems] = useState([]);
 
-
-      console.log(itemName);
-      console.log(itemAmount);
+  const [income, setIncome] = useState(0);
+  const expense = items?.reduce((acc, currentValue) => {
+    // acc is initial value no matter which value we are passing //
+    acc = acc + parseInt(currentValue?.amount);
+    return acc;
+  }, 0);
 
   return (
-    <FormDataContext.Provider value={{ itemsName, setItemsName, itemAmount, setItemAmount, income, setIncome, balance, setBalance, expense, setExpense, formData, setFormData, itemName, setItemName, itemsAmount, setItemsAmount }}>
+    <FormDataContext.Provider
+      value={{
+        income,
+        setIncome,
+        expense,
+        formData,
+        setFormData,
+        items,
+        setItems,
+      }}
+    >
       {children}
     </FormDataContext.Provider>
   );
