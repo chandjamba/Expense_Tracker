@@ -2,25 +2,31 @@ import "./addNewTransaction.scss";
 import { useFormDataContext } from "../contexts/FormDataContext";
 
 export default function AddNewTransaction() {
+  const {itemsName, setItemsName} = useFormDataContext();
   const {itemName, setItemName} = useFormDataContext();
+  const {itemsAmount, setItemsAmount} = useFormDataContext();
   const {itemAmount, setItemAmount} = useFormDataContext();
   const {income, setIncome} = useFormDataContext();
 
 
-  function submitButtonHandler(e) {
+  function addButtonHandler(e) {
     e.preventDefault();
-    const formData = {
-      item: e.target.nameInput.value,
-      amount: e.target.amountInput.value,
-      income: e.target.incomeInput.value,
-    };
+    
+    if (itemName.trim()  && itemAmount.trim() !== ""){
 
-    console.log(formData);
+      setItemsName([...itemsName, itemName]);
+      setItemName("");
+      setItemsAmount([...itemsAmount, itemAmount]);
+      setItemAmount("");
+    }
+
+    
   }
+  console.log(itemsName);
 
   return (
     <div className="addNewTransaction">
-        <form className="addNewTransaction__form"   onSubmit={submitButtonHandler}>
+        <form className="addNewTransaction__form"   onSubmit={addButtonHandler}>
         <div className="addNewTransaction__inner-container">
           <div className="addNewTransaction__heading-box">
             Add new transaction
@@ -70,7 +76,6 @@ export default function AddNewTransaction() {
                 name="incomeInput"
                 value={income || ""}
                 onChange={(event) => setIncome(event.target.value)}
-                required
                 maxLength="10"
               />
               {console.log(income)}

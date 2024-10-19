@@ -6,8 +6,11 @@ export const FormDataContext = createContext();
 // <Context.Provider
 // value={{}} > { children }</Context.Provider >
 export function FormDataContextProvider({ children }) {
-      const [itemName, setItemName] = useState("");
-      const [itemAmount, setItemAmount] = useState(0);
+      const [formData, setFormData] = useState("");
+      const [itemsName, setItemsName] = useState([]);
+      const [itemName, setItemName] = useState([]);
+      const [itemsAmount, setItemsAmount] = useState([]);
+      const [itemAmount, setItemAmount] = useState([]);
       const [income, setIncome] = useState(0);
       const [balance, setBalance] = useState(0);
       const [expense, setExpense] = useState(0);
@@ -17,7 +20,7 @@ export function FormDataContextProvider({ children }) {
       console.log(itemAmount);
 
   return (
-    <FormDataContext.Provider value={{ itemName, setItemName, itemAmount, setItemAmount, income, setIncome, balance, setBalance, expense, setExpense }}>
+    <FormDataContext.Provider value={{ itemsName, setItemsName, itemAmount, setItemAmount, income, setIncome, balance, setBalance, expense, setExpense, formData, setFormData, itemName, setItemName, itemsAmount, setItemsAmount }}>
       {children}
     </FormDataContext.Provider>
   );
