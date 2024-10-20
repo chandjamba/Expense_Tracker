@@ -2,7 +2,7 @@ import "./addNewTransaction.scss";
 import { useFormDataContext } from "../contexts/FormDataContext";
 
 export default function AddNewTransaction() {
-  const { setItems } = useFormDataContext();
+  const { setItems, setIncome } = useFormDataContext();
 
   function addButtonHandler(e) {
     e.preventDefault();
@@ -13,9 +13,17 @@ export default function AddNewTransaction() {
     });
   }
 
+  function addIncomeButtonHandler(e) {
+    e.preventDefault();
+    const totalIncome = new FormData(e.target);
+    const parsedTotalIncome = Object.fromEntries(totalIncome.entries());
+    setIncome(parsedTotalIncome?.incomeAmount);
+    console.log(parsedTotalIncome?.incomeAmount);
+  }
+
   return (
     <div className="addNewTransaction">
-      <form className="addNewTransaction__form" onSubmit={addButtonHandler}>
+      <form className="addNewTransaction__form-1" onSubmit={addButtonHandler}>
         <div className="addNewTransaction__inner-container">
           <div className="addNewTransaction__heading-box">
             Add new transaction
@@ -48,19 +56,27 @@ export default function AddNewTransaction() {
             </div>
           </div>
 
-          <div className="addNewTransaction__income-input-3-container">
-            <div className="addNewTransaction__input-3-heading">Income</div>
-            <div className="addNewTransaction__input-3-box">
-              <input
-                className="addNewTransaction__input-3"
-                type="text"
-                placeholder="$"
-                name="income"
-                maxLength="10"
-              />
-            </div>
-          </div>
           <button className="addNewTransaction__btn" type="submit">
+            Add transaction
+          </button>
+        </div>
+      </form>
+      <form
+        className="addNewTransaction__form-2"
+        onSubmit={addIncomeButtonHandler}
+      >
+        <div className="addNewTransaction__income-input-3-container">
+          <div className="addNewTransaction__input-3-heading">Income</div>
+          <div className="addNewTransaction__input-3-box">
+            <input
+              className="addNewTransaction__input-3"
+              type="text"
+              placeholder="$"
+              name="incomeAmount"
+              maxLength="10"
+            />
+          </div>
+          <button className="addNewTransaction__income-add-btn" type="submit">
             Add transaction
           </button>
         </div>

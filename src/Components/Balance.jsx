@@ -2,9 +2,13 @@ import "./balance.scss";
 import { useFormDataContext } from "../contexts/FormDataContext";
 
 export default function Balance() {
-  const { income, balance, items, expense } = useFormDataContext();
+  const { income, items, expense } = useFormDataContext();
 
   console.log(items);
+  console.log(income, expense);
+
+  const balanceAmount = income - expense;
+  console.log(balanceAmount);
 
   return (
     <div className="balance">
@@ -14,7 +18,7 @@ export default function Balance() {
             <h1 className="balance__heading"> Your Balance</h1>
           </div>
           <div className="balance__amount-container">
-            <h1 className="balance__amount"> ${balance} </h1>
+            <h1 className="balance__amount"> ${balanceAmount} </h1>
           </div>
         </div>
         <div className="balance__income-expense-container">

@@ -8,8 +8,8 @@ export const FormDataContext = createContext();
 export function FormDataContextProvider({ children }) {
   const [formData, setFormData] = useState("");
   const [items, setItems] = useState([]);
-
   const [income, setIncome] = useState(0);
+
   const expense = items?.reduce((acc, currentValue) => {
     // acc is initial value no matter which value we are passing //
     acc = acc + parseInt(currentValue?.amount);
